@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+    
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+    
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+    
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+    
+        .navbar a:hover {
+            color: #00c6ff;
+        }
+    
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background: linear-gradient(to bottom, #000428, #004e92);
+        }
+    
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+    
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+    
+        .hero .btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+    
+        .hero .btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #0072ff, #00c6ff);
+        }
+    
+        /* Hero Image Styling */
+        .hero-image {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+    
+        /* About Section */
+        .about {
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #1c1c1c, #333);
+            color: #ddd;
+        }
+    
+        .about h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #fff;
+        }
+    
+        .about .content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    
+        /* Skills Section */
+        .skills {
+            padding: 50px 20px;
+            background: linear-gradient(to top, #1c1c1c, #333);
+        }
+    
+        .skills h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #fff;
+        }
+    
+        .skills .skill-list {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+    
+        .skills .skill {
+            padding: 10px 20px;
+            background: #444;
+            border-radius: 20px;
+            color: #00c6ff;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+    
+        .skills .skill:hover {
+            background: #00c6ff;
+            color: #fff;
+            transform: scale(1.1);
+        }
+    
+        /* Experience Section */
+        .experience {
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #333, #1c1c1c);
+            color: #ddd;
+        }
+    
+        .experience h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #fff;
+        }
+    
+        .experience-item {
+            margin-bottom: 30px;
+            background: #222;
+            border-radius: 10px;
+            padding: 20px;
+            color: #00c6ff;
+        }
+    
+        .experience-item h3 {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+    
+        .experience-item p {
+            font-size: 1rem;
+        }
+    
+        .experience-item strong {
+            color: #fff;
+        }
+    
+        /* Projects Section */
+        .projects {
+            padding: 50px 20px;
+            background: #000428;
+            color: #ddd;
+        }
+    
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #fff;
+        }
+    
+        .projects .project-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+    
+        .projects .project {
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+            color: #00c6ff;
+            max-width: 300px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+    
+        .projects .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 198, 255, 0.5);
+        }
+    
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    
+        .footer a {
+            color: #00c6ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+    
+        .footer a:hover {
+            color: #fff;
+        }
+    
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+    
+            .navbar .links a {
+                margin: 10px 0;
+            }
+    
+            .hero h1 {
+                font-size: 2rem;
+            }
+    
+            .hero p {
+                font-size: 1rem;
+            }
+    
+            .skills .skill-list {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .experience-item {
+                padding: 15px;
+            }
+    
+            .projects .project {
+                max-width: 100%;
+            }
+        }
+    </style>    
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">My Portfolio</div>
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+<section id="home" class="hero">
+    <img src="https://media.licdn.com/dms/image/v2/D4D03AQHvuCEj0umiRA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724450767358?e=2147483647&v=beta&t=m7A-sR0nb_Xrpa9WTNebN9OIhSzVAiI-P0kx5Q8Tw3Y" alt="Shivam Swami" class="hero-image">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hi, I'm Shivam Swami. A passionate web developer focused on building engaging web experiences. Explore my skills, projects, and accomplishments below.</p>
+    <button class="btn">
+        <a href="https://drive.google.com/file/d/1YxjNXBS6ZbyMwGtZ8SBwZYjSpJ8ZLeT0/view?usp=drivesdk">Download Resume</a>
+    </button>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="content">
+        <p>👋 Hello! I’m Shivam Swami, a B.Tech (Third Year) student specializing in Information Technology at MIT ADT University. With a keen interest in technology and a strong foundation in software development, I am enthusiastic about applying my knowledge to real-world challenges.</p>
+        <p>🔍 Throughout my studies, I have developed a solid understanding of Data Structures and Algorithms (DSA) and Web Development. I have gained practical experience through academic projects and coursework, where I’ve worked with technologies such as HTML, CSS, JavaScript, and React. My coursework and projects have prepared me to tackle complex problems and develop innovative solutions.</p>
+        <p>💡 I am passionate about continuous learning and staying updated with the latest technology trends. I actively seek opportunities to expand my skills and contribute to meaningful projects. As a dedicated student, I am excited about the prospect of starting my professional journey and making a positive impact in the IT industry.</p>
+        </div>
+    </section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skill-list">
+        <div class="skill">C Language</div>
+        <div class="skill">C++</div>
+        <div class="skill">JAVA</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Python</div>
+        <div class="skill">Git</div>
+        <div class="skill">SQL</div>
+        <div class="skill">MongoDB</div>
+        <div class="skill">Agile</div>
+        <div class="skill">Algorithms</div>
+        <div class="skill">Computer Vision</div>
+        <div class="skill">Fundamentals of Machine Learning</div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience">
+    <h2>Experience</h2>
+    <div class="experience-item">
+        <h3>Web Developer Intern - Prodigy InfoTech</h3>
+        <p><strong>Duration:</strong> December 2024 - Present</p>
+        <p><strong>Location:</strong> Remote</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, React, Node.js, Git</p>
+        <p>Working as a Web Developer Intern at Prodigy InfoTech, focusing on front-end development and building responsive web pages. Collaborating with the team to improve user interfaces, enhance functionality, and ensure cross-platform compatibility.</p>
+    </div>
+    <div class="experience-item">
+        <h3>Campus Ambassador - DevTown</h3>
+        <p><strong>Duration:</strong> November 2024 - Present</p>
+        <p><strong>Location:</strong> Pune, Remote</p>
+        <p><strong>Responsibilities:</strong> Promoting DevTown events, social media engagement, and brand ambassador training. Engaged with students to spread awareness about the platform and its offerings.</p>
+    </div>
+    <div class="experience-item">
+        <h3>Project Leader - Smart Hospital Queue and Bed Management System</h3>
+        <p><strong>Duration:</strong> June 2024 - November 2024</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Node.js, MongoDB</p>
+        <p>Led a team to create the Smart Hospital Queue and Bed Management System, optimizing hospital workflows and improving patient management.</p>
+    </div>
+    <div class="experience-item">
+        <h3>Project Leader - Travel and Tourism Management System</h3>
+        <p><strong>Duration:</strong> March 2024 - May 2024</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Node.js, MongoDB</p>
+        <p>Led a team to develop a Travel and Tourism Management System during my 3rd semester. The system helps manage bookings, queries, and customer information for travel and tourism agencies.</p>
+    </div>
+</section>
+
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+        <div class="project">
+            <p>Smart Hospital Queue and Bed Management System</p>
+            <a href="https://github.com/Shivam140902/Smart-Hospital-Queue-and-Bed-Management-System" target="_blank" style="color: #00c6ff;">View on GitHub</a>
+        </div>
+        <div class="project">
+            <p>Travel and Tourism Management System</p>
+            <a href="https://github.com/Shivam140902/Travel-and-Tourism-Management-System" target="_blank" style="color: #00c6ff;">View on GitHub</a>
+        </div>
+        <div class="project">
+            <p>Responsive Landing Page</p>
+            <a href="https://github.com/Shivam140902/Prodigy-InfoTech-Internship/blob/main/responsivelandingpage.html" target="_blank" style="color: #00c6ff;">View on GitHub</a>
+        </div>
+        <div class="project">
+            <p>Stopwatch Web Application</p>
+            <a href="https://github.com/Shivam140902/Prodigy-InfoTech-Internship/blob/main/stopwatchwebapplication.html" target="_blank" style="color: #00c6ff;">View on GitHub</a>
+        </div>
+        <div class="project">
+            <p>Tic-Tac-Toe Game</p>
+            <a href="https://github.com/Shivam140902/Prodigy-InfoTech-Internship/blob/main/tictactoewebapplication.html" target="_blank" style="color: #00c6ff;">View on GitHub</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+<footer class="footer">
+    <p>Created by Shivam Swami | <a href="mailto:swamishivam761@gmail.com">swamishivam761@gmail.com</a></p>
+    <p>
+        <a href="https://www.linkedin.com/in/shivam-swami-3a643a258" target="_blank" style="color: #00c6ff; text-decoration: none;">Follow me on LinkedIn </a>
+        <br>
+        <a href="https://www.instagram.com/shivammm_14_/profilecard/?igsh=MWs3MGdqaGx2YWt6bQ==" target="_blank">Follow me on Instagram</a>
+
+    </p>
+</footer>
+
+</body>
+</html>
